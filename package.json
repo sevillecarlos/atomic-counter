@@ -1,0 +1,23 @@
+{
+  "name": "atomic-counter",
+  "version": "1.0.0",
+  "description": "An app can count the atoms of a chemistry formula",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sevillecarlos/atomic-counter.git"
+  },
+  "author": "Carlos A. Sevilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sevillecarlos/atomic-counter/issues"
+  },
+  "homepage": "https://github.com/sevillecarlos/atomic-counter#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
