@@ -4,20 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/css/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./vendors/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./vendors/css/grid.css" />
+    <title>Atomic Counter</title>
   </head>
   <body>
-    <header class="header-input">
-      <div class="intro-div">
-        <label for="formula">Add formula to calculate</label>
-        <input class="input formula-intro" placeholder="HMg(O2)K" type="text" />
-        <button class="btn calc-btn">🧪</button>
+    <header>
+      <div class="section group">
+        <div class="col span-3-of-3">
+          <div class="title-container">
+            <h1>
+              <img
+                class="logo-image"
+                src="./assets/img/logo.png"
+                alt="Logo Atom Counter"
+              />
+              Atom Counter
+            </h1>
+          </div>
+        </div>
+        <div class="section group">
+          <div class="col span-1-of-2">
+            <div class="intro-div">
+              <div class="col span-3-of-3">
+                <label class="label-input" for="formula"
+                  >Add formula to calculate</label
+                >
+              </div>
+              <div class="col span-3-of-3">
+                <input
+                  class="formula-intro"
+                  placeholder="HMg(O2)K"
+                  type="text"
+                />
+              </div>
+              <div class="col span-3-of-3">
+                <button class="btn calc-btn">Calculate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col span-1-of-2">
+          <div class="container-counter-elements">
+            <table>
+              <tr>
+                <td><h3 class="amount-element">2</h3></td>
+                <td><h3>of</h3></td>
+                <td>
+                  <img
+                    class="element-image"
+                    src="./assets/img/elements-img/01-Hydrogen-Tile.png"
+                    alt=""
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
     </header>
-    <section class="answer-section">
-      <div class="show-calc"></div>
-    </section>
   </body>
   <script src="./src/js/script.js"></script>
 </html>

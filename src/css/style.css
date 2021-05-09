@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Prompt", sans-serif;
+  background: rgb(216, 219, 216);
+}
+input[type="text"] {
+  border-radius: 15px;
+  text-align: center;
+}
+h3 {
+  font-size: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.logo-image {
+  height: 100px;
+  width: auto;
+  padding-left: 10px;
+}
+.intro-div {
+  padding-left: 30px;
+  margin-top: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.label-input {
+  font-size: 30px;
+  margin-left: 3%;
+  font-weight: bolder;
+}
+.formula-intro {
+  font-size: 30px;
+  margin-top: 20px;
+  background-color: #feebf4;
+  letter-spacing: 2px;
+}
+.btn {
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+.calc-btn {
+  background-color: #b5e48c;
+  transition: background-color 0.2s;
+  font-weight: bolder;
+  margin-top: 25px;
+  font-size: 150%;
+  text-align: center;
+  width: 33%;
+  margin-left: 3%;
+  letter-spacing: 2px;
+}
+.calc-btn:hover {
+  background-color: #8db66a;
+}
+.title-header {
+  padding-left: 40px;
+}
+.title-container {
+  margin-left: 30%;
+  font-size: 30px;
+}
+
+.borderss {
+  border: 1px solid;
+  width: 100px;
+}
+.element-image {
+  height: 100px;
+  width: auto;
+}
+
+/* Big tablets to 1200px*/
+@media only screen and (max-width: 1200px) {
+}
+
+/* Small tablets to big tablets: from 768 to 1032*/
+@media only screen and (max-width: 1032px) {
+}
+
+/* Small phones to small tablets: from 481 to 767*/
+@media only screen and (max-width: 767px) {
+}
+
+/*Small Phone from 0 to 480px*/
+@media only screen and (max-width: 400px) {
+  .logo-image {
+    height: 50px;
+    padding-top: 10px;
+  }
+  .formula-intro {
+    font-size: 25px;
+  }
+  .label-input {
+    font-size: 25px;
+  }
+  .intro-div {
+    padding-top: 0px;
+  }
+  .title-container {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+  .calc-btn {
+    margin-left: 30%;
+    font-size: 15px;
+  }
+  table {
+    margin-left: 10%;
+  }
+}
