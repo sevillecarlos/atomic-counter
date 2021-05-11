@@ -41,6 +41,7 @@ tr:nth-child(even) {
   margin-top: 5%;
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 100%;
 }
 .label-input {
   font-size: 30px;
@@ -87,6 +88,12 @@ tr:nth-child(even) {
   height: 100px;
   width: auto;
 }
+.formula-sample {
+  letter-spacing: 5px;
+  font-size: 150%;
+  line-height: 100px;
+  margin-left: 10%;
+}
 
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
@@ -123,6 +130,13 @@ tr:nth-child(even) {
     margin-left: 30%;
     font-size: 15px;
   }
+  .formula-sample {
+    padding: 20px;
+    font-size: 100%;
+    line-height: 0px;
+    margin-left: 20%;  
+  }
+
   table {
     margin-left: 10%;
   }

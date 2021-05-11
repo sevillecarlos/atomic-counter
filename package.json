@@ -19,5 +19,8 @@
   "homepage": "https://github.com/sevillecarlos/atomic-counter#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "ptable": "0.0.3"
   }
 }
