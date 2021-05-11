@@ -6,6 +6,7 @@ const btnCalc = document.querySelector(".calc-btn");
 const containerIntro = document.querySelector(".intro-div");
 const showCalcContainer = document.querySelector(".show-calc");
 const elementTableCounter = document.querySelector("table");
+const formulaSample = document.querySelector(".formula-sample");
 
 const parseFormula = () => {
   const value = inputFormula.value;
@@ -13,40 +14,56 @@ const parseFormula = () => {
   inputFormula.value = "";
 };
 
+const clear = () => {
+  elementTableCounter.innerHTML = "";
+  formulaSample.textContent = "";
+};
+
 const LOWER_CASE_LETTER = /^[a-z]*$/;
+
+function processText(inputText) {
+  var output = [];
+  var json = inputText.split(" ");
+  json.forEach(function (item) {
+    output.push(item.replace(/\'/g, "").split(/(\d+)/).filter(Boolean));
+  });
+  return output.flat();
+}
+
+const convertNumber = (arr) => arr.map((x) => (parseInt(x) ? parseInt(x) : x));
+
 const concatArray = (arr) => {
-  const newArr = [];
-  let ii = 0;
-  for (const [i, e] of arr.entries()) {
-    if (LOWER_CASE_LETTER.test(e)) {
-      newArr[i - 1] = arr[i - 1].concat(e);
-    }
-    //fix concat numbers from array
-    if (/\d+/g.test(e)) {
-      if (i - ii === 1) {
-        console.log(i, e);
-        newArr[i - 1] = arr[i - 1].concat(e);
+  const convertArr = convertNumber(arr);
+  const newArr = convertArr
+    .map((x, i, arr) => {
+      if (!parseInt(x)) {
+        if (x.length > 1) {
+          if (!LOWER_CASE_LETTER.test(x[x.length - 1])) {
+            return x.split("");
+          } else {
+            return x.split("");
+          }
+        }
       }
-      ii = i;
+      return x;
+    })
+    .flat();
+  const s = [];
+  for (const [i, v] of newArr.entries()) {
+    if (LOWER_CASE_LETTER.test(v)) {
+      s[i - 1] = newArr[i - 1].concat(v);
     }
-    newArr.push(e);
+    s.push(v);
   }
-  return newArr.filter((x) => !LOWER_CASE_LETTER.test(x));
+  return s.filter((x) => !LOWER_CASE_LETTER.test(x));
 };
 
 const renderView = (obj) => {
   const { formulaCounter, formulaCounterN } = obj;
 
-  const gridCol = document.createElement("div");
-  const hElement = document.createElement("p");
-  const nodeText = document.createTextNode(inputFormula.value);
+  clear();
 
-  gridCol.className = "col span-3-of-3";
-  hElement.className = "formula-sample";
-  hElement.appendChild(nodeText);
-  gridCol.appendChild(hElement);
-  containerIntro.appendChild(gridCol);
-
+  formulaSample.textContent = inputFormula.value;
   for (let index = 0; index < formulaCounter.length; index++) {
     const { name, number } = pTable(formulaCounter[index]);
     elementTableCounter.insertRow().innerHTML = `
@@ -69,7 +86,7 @@ const atomicCounter = function (formula = "Mg5H4(O2)H4MgO5Li5HH") {
   const OPEN_PAR = "(";
   const CLOSE_PAR = ")";
 
-  const Formula = concatArray(formula.split(""));
+  const Formula = concatArray(processText(formula));
   const formulaCounterN = [];
 
   const formulaCounter = [];
@@ -93,10 +110,9 @@ const atomicCounter = function (formula = "Mg5H4(O2)H4MgO5Li5HH") {
       if (NUMBER.test(element)) {
         formulaCounterN[
           formulaCounter.indexOf(Formula[Formula.indexOf(element) - 1])
-        ] += Number(element);
+        ] += element;
 
-        Formula[Formula.indexOf(element)] =
-          +Formula[Formula.indexOf(element)].concat("*");
+        Formula[Formula.indexOf(element)] = -1;
       }
     }
     if (
