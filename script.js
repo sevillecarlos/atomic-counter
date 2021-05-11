@@ -20,6 +20,9 @@ const clear = () => {
 };
 
 const LOWER_CASE_LETTER = /^[a-z]*$/;
+const LETTER = /^[a-zA-Z]*$/;
+const OPEN_PAR = "(";
+const CLOSE_PAR = ")";
 
 function processText(inputText) {
   var output = [];
@@ -79,9 +82,7 @@ const renderView = (obj) => {
   }
 };
 
-const atomicCounter = function (formula = "Mg5H4(O2)H4MgO5Li5HH") {
-  const LETTER = /^[a-zA-Z]*$/;
-
+const atomicCounter = function (formula = "C6H12O6") {
   const NUMBER = /\d+/g;
   const OPEN_PAR = "(";
   const CLOSE_PAR = ")";
@@ -90,27 +91,29 @@ const atomicCounter = function (formula = "Mg5H4(O2)H4MgO5Li5HH") {
   const formulaCounterN = [];
 
   const formulaCounter = [];
-  const [l] = Formula[0];
   let i = 0;
   try {
-    if (!LETTER.test(l))
-      throw new Error("Your formula need to start with a CAPITAL letter");
-
     for (const [index, element] of Formula.entries()) {
-      if (LETTER.test(element)) {
+      if (
+        LETTER.test(element) ||
+        OPEN_PAR === element ||
+        CLOSE_PAR === element
+      ) {
         if (index - i === 1) {
           formulaCounterN[formulaCounter.indexOf(Formula[index - 1])]++;
         }
         i = index;
         if (!formulaCounter.includes(element)) {
-          formulaCounter.push(element);
-          formulaCounterN.push(0);
+          if (!(OPEN_PAR === element) && !(CLOSE_PAR === element)) {
+            formulaCounter.push(element);
+            formulaCounterN.push(0);
+          }
         }
       }
       if (NUMBER.test(element)) {
         formulaCounterN[
           formulaCounter.indexOf(Formula[Formula.indexOf(element) - 1])
-        ] += element;
+        ] += Number(element);
 
         Formula[Formula.indexOf(element)] = -1;
       }
@@ -126,4 +129,5 @@ const atomicCounter = function (formula = "Mg5H4(O2)H4MgO5Li5HH") {
     console.log(error);
   }
 };
+
 btnCalc.addEventListener("click", parseFormula);
