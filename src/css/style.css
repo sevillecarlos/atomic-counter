@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap");
-
+/*************************************************************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,7 @@ input[type="text"] {
   border-radius: 15px;
   text-align: center;
 }
+
 h3 {
   font-size: 50px;
 }
@@ -31,6 +32,10 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+/*************************************************************************************************************/
+.title{
+  font-size: 300%;
+}
 .logo-image {
   height: 100px;
   width: auto;
@@ -44,13 +49,14 @@ tr:nth-child(even) {
   width: 100%;
 }
 .label-input {
-  font-size: 30px;
+  font-size: 200%;
   margin-left: 3%;
   font-weight: bolder;
 }
 .formula-intro {
-  font-size: 30px;
+  font-size: 200%;
   margin-top: 20px;
+  width: 50%;
   background-color: #feebf4;
   letter-spacing: 2px;
 }
@@ -62,12 +68,9 @@ tr:nth-child(even) {
   background-color: #b5e48c;
   transition: background-color 0.2s;
   font-weight: bolder;
-  margin-top: 25px;
-  font-size: 150%;
   text-align: center;
   width: 33%;
-  margin-left: 3%;
-  letter-spacing: 2px;
+  margin: 20px 20px;
 }
 .calc-btn:hover {
   background-color: #8db66a;
@@ -94,17 +97,113 @@ tr:nth-child(even) {
   line-height: 100px;
   margin-left: 10%;
 }
-
+/*************************************************************************************************************/
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
+  .title{
+    font-size: 250%;
+    text-align: center;
+  }
 }
 
 /* Small tablets to big tablets: from 768 to 1032*/
 @media only screen and (max-width: 1032px) {
+  .logo-image {
+    height: 50px;
+    padding-top: 10px;
+  }
+  .formula-intro {
+    font-size: 40px;
+    width: 80%;
+  }
+  .label-input {
+    font-size: 150%;
+    margin-left: 10%;
+  }
+  .intro-div {
+    padding-top: 0px;
+    margin-top: 10%;
+  }
+  .title-container {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+  .calc-btn {
+    margin-left: 15%;
+    font-size: 25px;
+    width: 50%;
+  }
+  
+  .formula-sample {
+    padding: 20px;
+    font-size: 200%;
+    line-height: 0px;
+    margin-left: 30%;  
+  }
+
+  table {
+    margin-top: 10%;
+    margin-left: 10%;
+  }
+  .element-image {
+    height: 80px;
+    width: auto;
+  }
+  h3 {
+    font-size: 50px;
+  }
+  .title{
+    font-size: 300%;
+    text-align: center;
+  }
 }
 
 /* Small phones to small tablets: from 481 to 767*/
 @media only screen and (max-width: 767px) {
+  .logo-image {
+    height: 50px;
+    padding-top: 10px;
+  }
+  .formula-intro {
+    font-size: 25px;
+    width: 80%;
+  }
+  .label-input {
+    font-size: 120%;
+    margin-left: 15%;
+  }
+  .intro-div {
+    padding-top: 0px;
+  }
+  .title-container {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+  .calc-btn {
+    margin-left: 15%;
+    font-size: 15px;
+  }
+  .formula-sample {
+    padding: 20px;
+    font-size: 100%;
+    line-height: 0px;
+    margin-left: 30%;  
+  }
+
+  table {
+    margin-left: 10%;
+  }
+  .element-image {
+    height: 65px;
+    width: auto;
+  }
+  h3 {
+    font-size: 45px;
+  }
+  .title{
+    font-size: 150%;
+    text-align: center;
+  }
 }
 
 /*Small Phone from 0 to 480px*/
@@ -115,9 +214,11 @@ tr:nth-child(even) {
   }
   .formula-intro {
     font-size: 25px;
+    width: 80%;
   }
   .label-input {
-    font-size: 25px;
+    font-size: 100%;
+    margin-left: 50px;
   }
   .intro-div {
     padding-top: 0px;
@@ -127,17 +228,28 @@ tr:nth-child(even) {
     font-size: 20px;
   }
   .calc-btn {
-    margin-left: 30%;
+    margin-left: 15%;
     font-size: 15px;
   }
   .formula-sample {
     padding: 20px;
     font-size: 100%;
     line-height: 0px;
-    margin-left: 20%;  
+    margin-left: 30%;  
   }
 
   table {
     margin-left: 10%;
+  }
+  .element-image {
+    height: 65px;
+    width: auto;
+  }
+  h3 {
+    font-size: 45px;
+  }
+  .title{
+    font-size: 130%;
+    text-align: center;
   }
 }
