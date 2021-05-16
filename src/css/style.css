@@ -33,7 +33,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 /*************************************************************************************************************/
-.title{
+.title {
   font-size: 300%;
 }
 .logo-image {
@@ -97,10 +97,14 @@ tr:nth-child(even) {
   line-height: 100px;
   margin-left: 10%;
 }
+.signature {
+  font-size: 20px;
+  text-align: center;
+}
 /*************************************************************************************************************/
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
-  .title{
+  .title {
     font-size: 250%;
     text-align: center;
   }
@@ -133,12 +137,12 @@ tr:nth-child(even) {
     font-size: 25px;
     width: 50%;
   }
-  
+
   .formula-sample {
     padding: 20px;
     font-size: 200%;
     line-height: 0px;
-    margin-left: 30%;  
+    margin-left: 30%;
   }
 
   table {
@@ -152,7 +156,7 @@ tr:nth-child(even) {
   h3 {
     font-size: 50px;
   }
-  .title{
+  .title {
     font-size: 300%;
     text-align: center;
   }
@@ -174,6 +178,7 @@ tr:nth-child(even) {
   }
   .intro-div {
     padding-top: 0px;
+    margin-left: 15px;
   }
   .title-container {
     margin-left: 1%;
@@ -187,7 +192,7 @@ tr:nth-child(even) {
     padding: 20px;
     font-size: 100%;
     line-height: 0px;
-    margin-left: 30%;  
+    margin-left: 30%;
   }
 
   table {
@@ -200,7 +205,7 @@ tr:nth-child(even) {
   h3 {
     font-size: 45px;
   }
-  .title{
+  .title {
     font-size: 150%;
     text-align: center;
   }
@@ -208,6 +213,14 @@ tr:nth-child(even) {
 
 /*Small Phone from 0 to 480px*/
 @media only screen and (max-width: 400px) {
+  table {
+    margin-left: 10%;
+  }
+
+  h3 {
+    font-size: 45px;
+  }
+
   .logo-image {
     height: 50px;
     padding-top: 10px;
@@ -218,10 +231,11 @@ tr:nth-child(even) {
   }
   .label-input {
     font-size: 100%;
-    margin-left: 50px;
+    margin-left: 10%;
   }
   .intro-div {
     padding-top: 0px;
+    margin-left: 15px;
   }
   .title-container {
     margin-left: 1%;
@@ -235,21 +249,18 @@ tr:nth-child(even) {
     padding: 20px;
     font-size: 100%;
     line-height: 0px;
-    margin-left: 30%;  
+    margin-left: 30%;
   }
-
-  table {
-    margin-left: 10%;
+  .title {
+    font-size: 130%;
+    text-align: center;
   }
   .element-image {
     height: 65px;
     width: auto;
   }
-  h3 {
-    font-size: 45px;
-  }
-  .title{
-    font-size: 130%;
+  .signature {
+    font-size: 15px;
     text-align: center;
   }
 }
