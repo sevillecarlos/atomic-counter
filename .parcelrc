@@ -1,0 +1,3 @@
+"optimizers": {
+  "*.{gif,jpeg,jpg,png,svg,webp}": ["parcel-optimizer-imagemin", "..."]
+}

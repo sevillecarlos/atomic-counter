@@ -7,6 +7,10 @@
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
+  "parcel-optimizer-imagemin": {
+    "imagemin-optipng": {},
+    "imagemin-pngquant": false
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sevillecarlos/atomic-counter.git"
@@ -18,9 +22,11 @@
   },
   "homepage": "https://github.com/sevillecarlos/atomic-counter#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "parcel-optimizer-imagemin": "^1.0.0"
   },
   "dependencies": {
+    "imagemin-optipng": "^8.0.0",
     "ptable": "0.0.3"
   }
 }
