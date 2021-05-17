@@ -7,6 +7,7 @@ import {
   OPEN_BRA,
   CLOSE_BRA,
   NUMBER,
+  LOWER_CASE_LETTER,
 } from "./config";
 import {
   parseNumber,
@@ -19,7 +20,6 @@ import {
 const inputFormula = document.querySelector(".formula-intro");
 const btnCalc = document.querySelector(".calc-btn");
 const elementTableCounter = document.querySelector("table");
-const formulaSample = document.querySelector(".formula-sample");
 const errorTag = document.querySelector(".error-tag");
 errorTag.textContent = "";
 /*************************************************************************************************************/
@@ -27,22 +27,29 @@ let numberToMultiply = 1;
 const parse = () => {
   errorTag.textContent = "";
   const value = inputFormula.value;
-  value.length !== 0 ? renderView(atomicCounter(value)) : console.log("Error");
+  LOWER_CASE_LETTER.test(value[0]) && value.length !== 0
+    ? (errorTag.textContent = `☠️ The formula need to start with a CAPITAL letter`)
+    : value.length !== 0
+    ? renderView(atomicCounter(value))
+    : (errorTag.textContent = "⚠️ Not have formula to calculate");
   inputFormula.value = "";
 };
 
 const clear = () => {
   elementTableCounter.innerHTML = "";
-  formulaSample.textContent = "";
 };
 
 const renderView = (obj) => {
   const { formulaCounter, formulaCounterN } = obj;
   clear();
-  formulaSample.textContent = inputFormula.value;
-  if (errorTag.textContent === "") {
-    for (let index = 0; index < formulaCounter.length; index++) {
-      const { name, number } = pTable(formulaCounter[index]);
+  for (let index = 0; index < formulaCounter.length; index++) {
+    const element = pTable(formulaCounter[index]);
+    if (!element) {
+      errorTag.textContent = `☠️ Some element of the formula don't exist`;
+      break;
+    }
+    const { name, number } = element;
+    if (errorTag.textContent === "" && element) {
       elementTableCounter.insertRow().innerHTML = `
       <td><h3 class="amount-element">${formulaCounterN[index]}</h3></td>
       <td><h3>of</h3></td>
@@ -98,7 +105,7 @@ const parseParanthesisFormula = (formula, formulaCounter, formulaCounterN) => {
 
       const subFormula = tempFormula.slice(indexOpen, indexClose + 1);
       const numberMultiply = tempFormula[indexClose + 1] * numberToMultiply;
-
+      console.log("()", numberToMultiply, numberMultiply);
       if (numberMultiply) {
         for (const [index, element] of subFormula.entries()) {
           if (
@@ -134,7 +141,7 @@ const parseParanthesisFormula = (formula, formulaCounter, formulaCounterN) => {
         }
       } else {
         errorTag.textContent =
-          "⚠️ Warning: Don't have number to multiply to ( ) or [ ], please removed";
+          "⚠️ Don't have number to multiply to ( ) or [ ], please removed";
         console.log("()");
       }
     }
@@ -143,6 +150,7 @@ const parseParanthesisFormula = (formula, formulaCounter, formulaCounterN) => {
 
 const parseBracketFormula = (formula, formulaCounter, formulaCounterN) => {
   const Formula = removeParaValues(concatArray(parseNumber(formula)));
+  console.log(inputFormula.value);
   const tempFormula = Formula;
   let i = 0;
   let indexOpen = 0;
@@ -155,10 +163,14 @@ const parseBracketFormula = (formula, formulaCounter, formulaCounterN) => {
 
     if (CLOSE_BRA === element) {
       indexClose = index;
+
       const subFormula = tempFormula.slice(indexOpen, indexClose + 1);
       const numberMultiply = tempFormula[indexClose + 1];
       numberToMultiply = numberMultiply;
-
+      console.log("[]", numberToMultiply, numberMultiply);
+      if (!numberToMultiply) {
+        numberToMultiply = 1;
+      }
       if (numberMultiply) {
         for (const [index, element] of subFormula.entries()) {
           if (
@@ -194,7 +206,7 @@ const parseBracketFormula = (formula, formulaCounter, formulaCounterN) => {
         }
       } else {
         errorTag.textContent =
-          "⚠️ Warning: Don't have number to multiply to ( ) or [ ], please removed";
+          "⚠️ Don't have number to multiply to ( ) or [ ], please removed";
         console.log("[]");
       }
     }

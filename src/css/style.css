@@ -14,7 +14,7 @@ input[type="text"] {
 }
 
 h3 {
-  font-size: 50px;
+  font-size: 500px;
 }
 
 table {
@@ -99,6 +99,10 @@ tr:nth-child(even) {
   font-size: 20px;
   text-align: center;
 }
+.error-tag{
+  font-size: 20px;
+  margin-left: 2%;
+}
 /*************************************************************************************************************/
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
@@ -160,10 +164,7 @@ tr:nth-child(even) {
 .container-counter-elements{
   width: 100%;
 }
-.error-tag{
-  font-size: 20px;
-  font-weight: bold;
-}
+
 /* Small phones to small tablets: from 481 to 767*/
 @media only screen and (max-width: 767px) {
   .logo-image {
@@ -208,6 +209,9 @@ tr:nth-child(even) {
   .title {
     font-size: 150%;
     text-align: center;
+  }
+  .error-tag{
+    font-size: 13px;
   }
 }
 
@@ -260,5 +264,8 @@ tr:nth-child(even) {
   .signature {
     font-size: 15px;
     text-align: center;
+  }
+  .error-tag{
+    font-size: 65%;
   }
 }
