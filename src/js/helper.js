@@ -1,9 +1,7 @@
 import {
     LOWER_CASE_LETTER,
     LETTER,
-    OPEN_PAR,
     CLOSE_PAR,
-    OPEN_BRA,
     CLOSE_BRA,
     NUMBER,
   } from "./config";
@@ -56,6 +54,19 @@ export const removeParaValues = (ar) => {
     }
   }
   return concatArray(parseNumber(ar.join("").replace(/\(([^()]+)\)/g, "")));
+};
+/*************************************************************************************************************/
+export const removeBraValues = (ar) => {
+  let indexCloseBRA = 0;
+  for (const [index, values] of ar.entries()) {
+    if (CLOSE_BRA === values) {
+      indexCloseBRA = index;
+      if (parseInt(ar[indexCloseBRA + 1])) {
+        ar.splice(indexCloseBRA + 1, 1);
+      }
+    }
+  }
+  return concatArray(parseNumber(ar.join("").replace(/\[.*?\]/g, "")));
 };
 /*************************************************************************************************************/
 export const addOneToLetter = (arr) => {
