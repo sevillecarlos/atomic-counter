@@ -30,52 +30,47 @@
     <title>Atom Counter</title>
   </head>
   <body>
-    <header>
+    <div class="container">
+      <h1 class="title">
+        <img
+          class="logo-image"
+          src="./assets/img/logo.png"
+          alt="Logo Atom Counter"
+        />
+        Atom Counter
+      </h1>
       <div class="section group">
         <div class="col span-3-of-3">
-          <div class="title-container">
-            <h1 class="title">
-              <img
-                class="logo-image"
-                src="./assets/img/logo.png"
-                alt="Logo Atom Counter"
-              />
-              Atom Counter
-              <p class="signature">by Carlos</p>
-            </h1>
-          </div>
+          <h5 class="label-input">Add formula to calculate</h5>
         </div>
+      </div>
+      <form>
         <div class="section group">
-          <div class="col span-1-of-2">
-            <div class="intro-div">
-              <div class="col span-3-of-3">
-                <label class="label-input" for="formula"
-                  >Add formula to calculate</label
-                >
-              </div>
-              <div class="col span-3-of-3">
-                <input
-                  class="formula-intro"
-                  placeholder="HMg(O2)K"
-                  type="text"
-                />
-              </div>
-              <div class="col span-3-of-3">
-                <button class="btn calc-btn">Calculate</button>
-              </div>
-              <div class="col span-3-of-3">
-                <h3 class="error-tag"></h3>
-              </div>
+          <div class="col span-3-of-3">
+            <input class="formula-intro" placeholder="HMg(O2)K" type="text" />
+          </div>
+          <div class="section group">
+            <div class="col span-3-of-3">
+              <h3 class="error-tag"></h3>
             </div>
           </div>
         </div>
-        <div class ="col span-1-of-2">
+        <div class="section group">
+          <div class="col span-3-of-3">
+            <button type="submit" class="btn calc-btn">
+              <img class="atom-img" src="./assets/img/atom.png" />
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="section group">
+        <div class="col span-3-of-3">
           <div class="container-counter-elements">
             <table></table>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   </body>
   <script src="./src/js/script.js"></script>
 </html>

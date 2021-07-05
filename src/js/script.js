@@ -1,5 +1,6 @@
 import pTable from "ptable";
 import images from "../../assets/img/elements-img/*.png";
+import arrowImage from "../../assets/img/rightarrow.png";
 import {
   LETTER,
   OPEN_PAR,
@@ -21,10 +22,13 @@ const inputFormula = document.querySelector(".formula-intro");
 const btnCalc = document.querySelector(".calc-btn");
 const elementTableCounter = document.querySelector("table");
 const errorTag = document.querySelector(".error-tag");
+const tableContainer = document.querySelector(".container-counter-elements");
 errorTag.textContent = "";
+tableContainer.setAttribute("class", "containerTable");
 /*************************************************************************************************************/
 let numberToMultiply = 1;
-const parse = () => {
+const parse = (e) => {
+  e.preventDefault();
   errorTag.textContent = "";
   const value = inputFormula.value;
   LOWER_CASE_LETTER.test(value[0]) && value.length !== 0
@@ -50,9 +54,14 @@ const renderView = (obj) => {
     }
     const { name, number } = element;
     if (errorTag.textContent === "" && element) {
+      tableContainer.removeAttribute("class");
       elementTableCounter.insertRow().innerHTML = `
       <td><h3 class="amount-element">${formulaCounterN[index]}</h3></td>
-      <td><h3>of</h3></td>
+      <td><img
+      class="arrow-image"
+      src="${arrowImage}"
+      alt="Element Image"
+    /></td>
       <td>
         <img
           class="element-image"
@@ -230,4 +239,4 @@ const atomicCounter = function (
   }
 };
 /*************************************************************************************************************/
-btnCalc.addEventListener("click", parse);
+btnCalc.addEventListener("click", (e) => parse(e));

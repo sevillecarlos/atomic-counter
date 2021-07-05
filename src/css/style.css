@@ -1,12 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap");
 /*************************************************************************************************************/
 * {
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: "Prompt", sans-serif;
-  background: rgb(216, 219, 216);
+  color: #182624;
+  font-family: "Libre Franklin", sans-serif;
+  background: rgb(155, 193, 188);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(155, 193, 188, 1) 2%,
+    rgba(230, 235, 224, 1) 80%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(155, 193, 188, 1) 2%,
+    rgba(230, 235, 224, 1) 80%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(155, 193, 188, 1) 2%,
+    rgba(230, 235, 224, 1) 80%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9bc1bc",endColorstr="#e6ebe0",GradientType=1);
 }
 input[type="text"] {
   border-radius: 15px;
@@ -14,100 +31,123 @@ input[type="text"] {
 }
 
 h3 {
-  font-size: 500%;
+  font-size: 60px;
 }
 
 table {
+  border-spacing: 0;
+  background-color: #27918f;
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+  overflow: auto;
+  height: 450px;
+  border-radius: 15px;
+  box-shadow: 4px 14px 49px -8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 4px 14px 49px -8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 14px 49px -8px rgba(0, 0, 0, 0.5);
 }
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+td {
+  height: 80px;
+  width: 33%;
+  padding: 0 100px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #8eb8b3;
 }
 /*************************************************************************************************************/
+.container {
+  width: 50%;
+  margin: auto;
+  display: block;
+  text-align: center;
+  background-color: #dc2f18;
+  border-radius: 15px;
+  box-shadow: -2px 14px 24px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: -2px 14px 24px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -2px 14px 24px 1px rgba(0, 0, 0, 0.5);
+}
 .title {
-  font-size: 300%;
+  font-size: 50px;
+  color: #182624;
+  text-shadow: 5px 2px 2px rgba(150, 150, 150, 1);
 }
 .logo-image {
   height: 100px;
   width: auto;
   padding-left: 10px;
 }
-.intro-div {
-  padding-left: 30px;
-  margin-top: 5%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-}
-.label-input {
-  font-size: 200%;
-  margin-left: 3%;
-  font-weight: bolder;
-}
 .formula-intro {
-  font-size: 200%;
-  margin-top: 20px;
+  font-size: 30px;
   width: 50%;
   background-color: #feebf4;
+  color: #182624;
   letter-spacing: 2px;
+  margin: auto;
+  font-weight: bold;
 }
+
 .btn {
   border-radius: 15px;
   padding: 5px 10px;
 }
+.arrow-image {
+  width: 80px;
+}
 .calc-btn {
-  background-color: #b5e48c;
+  background-color: #ed6b5a;
   transition: background-color 0.2s;
   font-weight: bolder;
   text-align: center;
-  width: 33%;
-  margin: 20px 20px;
+  text-shadow: 5px 2px 2px rgba(150, 150, 150, 1);
+  font-size: 25px;
+  box-shadow: 19px 20px 24px -10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 19px 20px 24px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 19px 20px 24px -10px rgba(0, 0, 0, 0.5);
 }
 .calc-btn:hover {
-  background-color: #8db66a;
+  background-color: #8eb8b3;
 }
-.title-header {
-  padding-left: 40px;
-}
-.title-container {
-  margin-left: 30%;
-  font-size: 30px;
+.atom-img {
+  width: 50px;
+  animation: rotation 3s infinite linear;
 }
 
-.borderss {
-  border: 1px solid;
-  width: 100px;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.containerTable {
+  display: none;
 }
 .element-image {
   height: 100px;
+  border-radius: 10px;
   width: auto;
+  padding: 10px;
 }
-.formula-sample {
-  letter-spacing: 2px;
-  font-size: 150%;
-}
-.signature {
-  font-size: 20px;
-  text-align: center;
-}
-.error-tag{
+.error-tag {
   font-size: 20px;
   margin-left: 2%;
 }
+.label-input {
+  font-size: 25px;
+}
+
 /*************************************************************************************************************/
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
   .title {
-    font-size: 250%;
+    font-size: 50%;
     text-align: center;
   }
 }
@@ -161,9 +201,6 @@ tr:nth-child(even) {
     text-align: center;
   }
 }
-.container-counter-elements{
-  width: 100%;
-}
 
 /* Small phones to small tablets: from 481 to 767*/
 @media only screen and (max-width: 767px) {
@@ -210,7 +247,7 @@ tr:nth-child(even) {
     font-size: 150%;
     text-align: center;
   }
-  .error-tag{
+  .error-tag {
     font-size: 13px;
   }
 }
@@ -265,7 +302,7 @@ tr:nth-child(even) {
     font-size: 15px;
     text-align: center;
   }
-  .error-tag{
+  .error-tag {
     font-size: 65%;
   }
 }
