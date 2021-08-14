@@ -23,6 +23,7 @@ const btnCalc = document.querySelector(".calc-btn");
 const elementTableCounter = document.querySelector("table");
 const errorTag = document.querySelector(".error-tag");
 const tableContainer = document.querySelector(".container-counter-elements");
+const enterFormula = document.querySelector(".enter-formula");
 errorTag.textContent = "";
 tableContainer.setAttribute("class", "containerTable");
 /*************************************************************************************************************/
@@ -45,30 +46,37 @@ const clear = () => {
 
 const renderView = (obj) => {
   const { formulaCounter, formulaCounterN } = obj;
+  const checkElementsExistArr = [];
   clear();
   for (let index = 0; index < formulaCounter.length; index++) {
-    const element = pTable(formulaCounter[index]);
+    const elementFormula = formulaCounter[index];
+    const element = pTable(elementFormula);
     if (!element) {
-      errorTag.textContent = `☠️ Some element of the formula don't exist`;
+      console.log(formulaCounter[index]);
+      errorTag.textContent = `☠️ The element ${elementFormula} don\'t exist`;
       break;
     }
-    const { name, number } = element;
-    if (errorTag.textContent === "" && element) {
-      tableContainer.removeAttribute("class");
-      elementTableCounter.insertRow().innerHTML = `
-      <td><h3 class="amount-element">${formulaCounterN[index]}</h3></td>
-      <td><img
-      class="arrow-image"
-      src="${arrowImage}"
-      alt="Element Image"
-    /></td>
-      <td>
-        <img
-          class="element-image"
-          src="${images[`${number}-${name}-Tile`]}"
-          alt="Element Image"
-        />
-      </td>`;
+    console.log(checkElementsExistArr.length)
+    checkElementsExistArr.map(v=> console.log(v))
+    if (checkElementsExistArr.every((v) => v !== "undefined")) {
+      const { name, number } = element;
+      if (errorTag.textContent === "" && element) {
+        tableContainer.removeAttribute("class");
+        elementTableCounter.insertRow().innerHTML = `
+        <td><h3 class="amount-element">${formulaCounterN[index]}</h3></td>
+        <td><img
+        class="arrow-image"
+        src="${arrowImage}"
+        alt="Element Image"
+      /></td>
+        <td>
+          <img
+            class="element-image"
+            src="${images[`${number}-${name}-Tile`]}"
+            alt="Element Image"
+          />
+        </td>`;
+      }
     }
   }
 };
@@ -216,7 +224,6 @@ const parseBracketFormula = (formula, formulaCounter, formulaCounterN) => {
       } else {
         errorTag.textContent =
           "⚠️ Don't have number to multiply to ( ) or [ ], please removed";
-        console.log("[]");
       }
     }
   }
@@ -227,6 +234,7 @@ const atomicCounter = function (
 ) {
   const formulaCounterN = [];
   const formulaCounter = [];
+  enterFormula.textContent = inputFormula.value;
 
   try {
     parseFormula(formula, formulaCounter, formulaCounterN);
