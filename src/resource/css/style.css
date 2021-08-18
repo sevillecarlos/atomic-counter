@@ -43,7 +43,7 @@ table {
   display: inline-block;
   overflow: auto;
   min-height: 20px;
-  height: 450px;
+  height: 350px;
 }
 
 td {
@@ -53,7 +53,6 @@ td {
   text-align: center;
   vertical-align: middle;
 }
-
 
 button {
   border-radius: 50px;
@@ -65,6 +64,7 @@ button {
   margin: auto;
   display: block;
   text-align: center;
+  border-radius: 15px;
 }
 .title {
   font-size: 50px;
@@ -84,12 +84,16 @@ button {
   letter-spacing: 2px;
   margin: auto;
   font-weight: bold;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
 }
 .arrow-image {
   width: 80px;
+}
+.amount-element{
+  font-size: 50px;
+  font-weight: bold;
 }
 .calc-btn {
   background-color: #2e6b3194;
@@ -98,17 +102,13 @@ button {
   width: 25%;
   padding: 10px;
   font-weight: bold;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  font-size: 25px;
+  box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  font-size: 120%;
 }
 .calc-btn:hover {
   background-color: #737c6e;
-}
-.atom-img {
-  width: 50px;
-  animation: rotation 3s infinite linear;
 }
 .footer {
   position: fixed;
@@ -117,19 +117,22 @@ button {
   width: 100%;
   color: #182624;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   padding: 15px;
   font-weight: bold;
+  box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
 }
 
 .containerTable {
   display: none;
 }
 .element-image {
-  height: 100px;
-  border-radius: 10px;
+  height: 90px;
+  border-radius: 5px;
   width: auto;
-  padding: 10px;
+  padding: 1px;
 }
 .error-tag {
   font-size: 20px;
@@ -138,11 +141,18 @@ button {
 .label-input {
   font-size: 25px;
 }
-.enter-formula{
+.enter-formula {
   text-align: center;
   font-size: 30px;
-  margin-top: 50px;
+  margin-top: 20px;
+}
+.inexistent-element {
+  color: rgb(233, 56, 56);
+}
 
+.inexistent-element:hover {
+  font-size: 25px;
+  cursor: pointer;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -165,163 +175,175 @@ button {
 /*************************************************************************************************************/
 /* Big tablets to 1200px*/
 @media only screen and (max-width: 1200px) {
-  .title {
-    font-size: 50%;
-    text-align: center;
-  }
 }
 
 /* Small tablets to big tablets: from 768 to 1032*/
 @media only screen and (max-width: 1032px) {
-  .logo-image {
-    height: 50px;
-    padding-top: 10px;
+  td {
+    padding: 0 75px;
   }
-  .formula-intro {
+  .container {
+    width: 90%;
+  }
+
+  .enter-formula {
     font-size: 40px;
-    width: 80%;
-  }
-  .label-input {
-    font-size: 150%;
-    margin-left: 10%;
-  }
-  .intro-div {
-    padding-top: 0px;
-    margin-top: 10%;
-  }
-  .title-container {
-    margin-left: 1%;
-    font-size: 20px;
-  }
-  .calc-btn {
-    margin-left: 15%;
-    font-size: 25px;
-    width: 50%;
-  }
-
-  .formula-sample {
-    font-size: 70%;
-    text-align: center;
-  }
-
-  table {
-    margin-top: 10%;
-    margin-left: 10%;
   }
   .element-image {
     height: 80px;
-    width: auto;
   }
-  h3 {
-    font-size: 50px;
+  .arrow-image {
+    width: 35px;
   }
   .title {
-    font-size: 300%;
-    text-align: center;
+    font-size: 40px;
+  }
+  .logo-image {
+    height: 70px;
+    width: auto;
+    padding-left: 1px;
+  }
+
+  .formula-intro {
+    font-size: 30px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .label-input {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .footer {
+    font-size: 20px;
+  }
+  .calc-btn {
+    width: 50%;
+    padding: 10px;
+    font-size: 175%;
+  }
+  .error-tag {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  .amount-element{
+    font-size: 45px;
   }
 }
 
 /* Small phones to small tablets: from 481 to 767*/
 @media only screen and (max-width: 767px) {
-  .logo-image {
-    height: 50px;
-    padding-top: 10px;
+  .container {
+    width: 90%;
   }
-  .formula-intro {
-    font-size: 25px;
-    width: 80%;
-  }
-  .label-input {
-    font-size: 120%;
-    margin-left: 15%;
-  }
-  .intro-div {
-    padding-top: 0px;
-    margin-left: 15px;
-  }
-  .title-container {
-    margin-left: 1%;
-    font-size: 20px;
-  }
-  .calc-btn {
-    margin-left: 15%;
-    font-size: 15px;
-  }
-  .formula-sample {
-    font-size: 65%;
-    margin-left: 5%;
+  table {
+    display: inline-block;
+    overflow: auto;
+    min-height: 20px;
+    height: 350px;
   }
 
-  table {
-    margin-left: 10%;
+  td {
+    height: 80px;
+    width: 20%;
+    padding: 0 30px;
+  }
+  .enter-formula {
+    font-size: 25px;
   }
   .element-image {
-    height: 65px;
-    width: auto;
+    height: 60px;
   }
-  h3 {
-    font-size: 45px;
+  .arrow-image {
+    width: 25px;
   }
   .title {
-    font-size: 150%;
-    text-align: center;
+    font-size: 25px;
+  }
+  .logo-image {
+    height: 40px;
+    width: auto;
+    padding-left: 1px;
+  }
+
+  .formula-intro {
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .label-input {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .footer {
+    font-size: 15px;
+  }
+  .calc-btn {
+    width: 75%;
+    padding: 4px;
+    font-size: 120%;
   }
   .error-tag {
-    font-size: 13px;
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+  .amount-element{
+    font-size: 35px;
   }
 }
 
 /*Small Phone from 0 to 480px*/
 @media only screen and (max-width: 400px) {
+  .container {
+    width: 90%;
+  }
   table {
-    margin-left: 10%;
+    min-height: 20px;
+    height: 295px;
   }
 
-  h3 {
-    font-size: 45px;
+  td {
+    padding: 0 20px;
   }
-
-  .logo-image {
-    height: 50px;
-    padding-top: 10px;
-  }
-  .formula-intro {
-    font-size: 25px;
-    width: 80%;
-  }
-  .label-input {
-    font-size: 100%;
-    margin-left: 10%;
-  }
-  .intro-div {
-    padding-top: 0px;
-    margin-left: 15px;
-  }
-  .title-container {
-    margin-left: 1%;
+  .enter-formula {
     font-size: 20px;
   }
-  .calc-btn {
-    margin-left: 15%;
-    font-size: 15px;
+  .element-image {
+    height: 50px;
   }
-  .formula-sample {
-    font-size: 50%;
-    margin-left: 10%;
+  .arrow-image {
+    width: 20px;
   }
   .title {
-    font-size: 130%;
-    text-align: center;
+    font-size: 20px;
   }
-  .element-image {
-    height: 55px;
+  .logo-image {
+    height: 35px;
     width: auto;
+    padding-left: 1px;
   }
-  .signature {
+
+  .formula-intro {
     font-size: 15px;
-    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .label-input {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  .footer {
+    font-size: 15px;
+  }
+  .calc-btn {
+    width: 75%;
+    padding: 4px;
+    font-size: 100%;
   }
   .error-tag {
-    font-size: 65%;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .amount-element{
+    font-size: 30px;
   }
 }
