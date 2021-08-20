@@ -91,7 +91,7 @@ button {
 .arrow-image {
   width: 80px;
 }
-.amount-element{
+.amount-element {
   font-size: 50px;
   font-weight: bold;
 }
@@ -124,7 +124,14 @@ button {
   -webkit-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 5px 21px -9px rgba(0, 0, 0, 0.75);
 }
-
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+.footer a:hover{
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+}
 .containerTable {
   display: none;
 }
@@ -225,7 +232,7 @@ button {
     font-size: 25px;
     margin-bottom: 5px;
   }
-  .amount-element{
+  .amount-element {
     font-size: 45px;
   }
 }
@@ -286,7 +293,7 @@ button {
     font-size: 17px;
     margin-bottom: 5px;
   }
-  .amount-element{
+  .amount-element {
     font-size: 35px;
   }
 }
@@ -343,7 +350,7 @@ button {
     font-size: 15px;
     margin-bottom: 5px;
   }
-  .amount-element{
+  .amount-element {
     font-size: 30px;
   }
 }
