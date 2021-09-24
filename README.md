@@ -8,7 +8,7 @@
 
 # Contributing
 Contributions, issues and feature requests are welcome!
-Feel free to check the [Issues Page](https://github.com/sevillecarlos/commerc-e/issues).
+Feel free to check the [Issues Page](https://github.com/sevillecarlos/atomic-counter/issues).
 
 # License
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
