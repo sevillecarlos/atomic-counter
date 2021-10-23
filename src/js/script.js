@@ -28,7 +28,6 @@ errorTag.textContent = "";
 tableContainer.setAttribute("class", "containerTable");
 
 /*************************************************************************************************************/
-let numberToMultiply = 1;
 const parse = (e) => {
   e.preventDefault();
   errorTag.textContent = "";
@@ -83,161 +82,13 @@ const renderView = (obj) => {
   }
 };
 
-const parseFormula = (formula, formulaCounter, formulaCounterN) => {
-  const subFormula = removeBraValues(
-    removeParaValues(concatArray(parseNumber(formula)))
-  );
-  addOneToLetter(subFormula);
-  for (const element of subFormula) {
-    if (LETTER.test(element) || OPEN_PAR === element) {
-      if (!formulaCounter.includes(element)) {
-        if (!(OPEN_PAR === element) && !(CLOSE_PAR === element)) {
-          formulaCounter.push(element);
-          formulaCounterN.push(0);
-        }
-      }
-    }
-    if (NUMBER.test(element)) {
-      formulaCounterN[
-        formulaCounter.indexOf(subFormula[subFormula.indexOf(element) - 1])
-      ] += Number(element);
-
-      subFormula[subFormula.indexOf(element)] = -1;
-    }
-  }
-};
-
-const parseParanthesisFormula = (formula, formulaCounter, formulaCounterN) => {
-  const Formula = concatArray(parseNumber(formula));
-  const tempFormula = Formula;
-  let i = 0;
-  let indexOpen = 0;
-  let indexClose = 0;
-
-  for (const [index, element] of Formula.entries()) {
-    if (OPEN_PAR === element) {
-      indexOpen = index;
-    }
-
-    if (CLOSE_PAR === element) {
-      indexClose = index;
-
-      const subFormula = tempFormula.slice(indexOpen, indexClose + 1);
-      const numberMultiply = tempFormula[indexClose + 1] * numberToMultiply;
-      if (numberMultiply) {
-        for (const [index, element] of subFormula.entries()) {
-          if (
-            LETTER.test(element) ||
-            OPEN_PAR === element ||
-            CLOSE_PAR === element
-          ) {
-            if (!formulaCounter.includes(element)) {
-              if (!(OPEN_PAR === element) && !(CLOSE_PAR === element)) {
-                formulaCounter.push(element);
-                formulaCounterN.push(0);
-              }
-            }
-            if (index - i === 1) {
-              if (formulaCounter.indexOf(subFormula[index - 1]) !== -1) {
-                formulaCounterN[
-                  formulaCounter.indexOf(subFormula[index - 1])
-                ] += 1 * numberMultiply;
-              }
-            }
-            i = index;
-          }
-          if (NUMBER.test(element)) {
-            formulaCounterN[
-              formulaCounter.indexOf(
-                subFormula[subFormula.indexOf(element) - 1]
-              )
-            ] += Number(element) * numberMultiply;
-            if (subFormula.indexOf(element)) {
-              subFormula[subFormula.indexOf(element)] = -1;
-            }
-          }
-        }
-      } else {
-        errorTag.textContent =
-          "⚠️ Don't have number to multiply to ( )";
-      }
-    }
-  }
-};
-
-const parseBracketFormula = (formula, formulaCounter, formulaCounterN) => {
-  const Formula = removeParaValues(concatArray(parseNumber(formula)));
-  console.log(inputFormula.value);
-  const tempFormula = Formula;
-  let i = 0;
-  let indexOpen = 0;
-  let indexClose = 0;
-
-  for (const [index, element] of Formula.entries()) {
-    if (OPEN_BRA === element) {
-      indexOpen = index;
-    }
-
-    if (CLOSE_BRA === element) {
-      indexClose = index;
-
-      const subFormula = tempFormula.slice(indexOpen, indexClose + 1);
-      const numberMultiply = tempFormula[indexClose + 1];
-      numberToMultiply = numberMultiply;
-      console.log("[]", numberToMultiply, numberMultiply);
-      if (!numberToMultiply) {
-        numberToMultiply = 1;
-      }
-      if (numberMultiply) {
-        for (const [index, element] of subFormula.entries()) {
-          if (
-            LETTER.test(element) ||
-            OPEN_BRA === element ||
-            CLOSE_BRA === element
-          ) {
-            if (!formulaCounter.includes(element)) {
-              if (!(OPEN_BRA === element) && !(CLOSE_BRA === element)) {
-                formulaCounter.push(element);
-                formulaCounterN.push(0);
-              }
-            }
-            if (index - i === 1) {
-              if (formulaCounter.indexOf(subFormula[index - 1]) !== -1) {
-                formulaCounterN[
-                  formulaCounter.indexOf(subFormula[index - 1])
-                ] += 1 * numberMultiply;
-              }
-            }
-            i = index;
-          }
-          if (NUMBER.test(element)) {
-            formulaCounterN[
-              formulaCounter.indexOf(
-                subFormula[subFormula.indexOf(element) - 1]
-              )
-            ] += Number(element) * numberMultiply;
-            if (subFormula.indexOf(element)) {
-              subFormula[subFormula.indexOf(element)] = -1;
-            }
-          }
-        }
-      } else {
-        errorTag.textContent =
-          "⚠️ Don't have number to multiply to [ ], please removed";
-      }
-    }
-  }
-};
 
 const atomicCounter = function (
   formula = "K4ONNSO334K[Na(OK)2]34K4ONNSO334K[Na(OK)2]34"
 ) {
-  const formulaCounterN = [];
-  const formulaCounter = [];
-
   enterFormula.textContent = inputFormula.value;
   try {
-    parseFormula(formula, formulaCounter, formulaCounterN);
+    parseFormula(formula);
     parseBracketFormula(formula, formulaCounter, formulaCounterN);
     parseParanthesisFormula(formula, formulaCounter, formulaCounterN);
     return { formulaCounter, formulaCounterN };
